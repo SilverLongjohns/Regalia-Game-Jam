@@ -16,6 +16,7 @@ namespace Platformer.Mechanics
     {
         //** NEW
 
+        public string modifier = "normal";
         public GameObject dead_body;
 
         //** END NEW
@@ -71,7 +72,7 @@ namespace Platformer.Mechanics
                 }
                 if (Input.GetKeyDown(KeyCode.U))
                 {
-                    spawnBody(new Vector2(1,1));
+                    spawnBody(new Vector2(1,1), new Vector2(1, 1));
                 }
             }
             else
@@ -82,10 +83,10 @@ namespace Platformer.Mechanics
             base.Update();
         }
 
-        public void spawnBody(Vector2 dims)
+        public void spawnBody(Vector2 dims, Vector2 scale)
         {
-            Debug.Log(dims);
             dead_body.GetComponent<BoxCollider2D>().size = dims;
+            dead_body.transform.localScale = scale;
             Instantiate(dead_body, transform.position, Quaternion.identity);
         }
         void UpdateJumpState()
@@ -152,6 +153,11 @@ namespace Platformer.Mechanics
             Jumping,
             InFlight,
             Landed
+        }
+        public enum Modifiers
+        {
+            Normal,
+            Big
         }
     }
 }
