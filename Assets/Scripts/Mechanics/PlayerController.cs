@@ -14,7 +14,11 @@ namespace Platformer.Mechanics
     /// </summary>
     public class PlayerController : KinematicObject
     {
+        //** NEW
+
         public GameObject dead_body;
+
+        //** END NEW
 
         public AudioClip jumpAudio;
         public AudioClip respawnAudio;
@@ -67,7 +71,7 @@ namespace Platformer.Mechanics
                 }
                 if (Input.GetKeyDown(KeyCode.U))
                 {
-                    HelloWorld();
+                    spawnBody(new Vector2(1,1));
                 }
             }
             else
@@ -78,9 +82,10 @@ namespace Platformer.Mechanics
             base.Update();
         }
 
-        void HelloWorld()
+        public void spawnBody(Vector2 dims)
         {
-            Debug.Log("Hello World!");
+            Debug.Log(dims);
+            dead_body.GetComponent<BoxCollider2D>().size = dims;
             Instantiate(dead_body, transform.position, Quaternion.identity);
         }
         void UpdateJumpState()

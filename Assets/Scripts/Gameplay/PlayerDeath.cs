@@ -31,6 +31,11 @@ namespace Platformer.Gameplay
                 // player.collider.enabled = false;
                 player.controlEnabled = false;
 
+                // Spawn the body on death
+                Vector2 dims = player.GetComponent<BoxCollider2D>().size;
+                player.spawnBody(dims);
+
+
                 if (player.audioSource && player.ouchAudio)
                     player.audioSource.PlayOneShot(player.ouchAudio);
                 player.animator.SetTrigger("hurt");
