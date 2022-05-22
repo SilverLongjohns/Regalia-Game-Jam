@@ -33,19 +33,18 @@ namespace Platformer.Gameplay
 
                 // Spawn the body on death
                 Vector2 dims = player.GetComponent<BoxCollider2D>().size;
-                int x = 0;
-                int y = 0;
+                float x = 0;
+                float y = 0;
                 switch (player.modifier)
                 {
                     case ("normal"):
-                        x = 1;
-                        y = 1;
+                        x = 0.2f;
+                        y = 0.2f;
                         break;
                     case ("big"):
-                        x = 3;
-                        y = 3;
+                        x = 3.0f;
+                        y = 3.0f;
                         break;
-
                 }
                 Vector2 newScaleVect = new Vector2(x, y);
                 player.spawnBody(dims, newScaleVect);
