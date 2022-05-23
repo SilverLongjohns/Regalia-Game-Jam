@@ -14,11 +14,23 @@ namespace Platformer.Mechanics
     {
         void OnTriggerEnter2D(Collider2D collider)
         {
-            var p = collider.gameObject.GetComponent<PlayerController>();
-            if (p != null)
+            if (collider.tag == "Player")
             {
-                var ev = Schedule<PlayerEnteredDeathZone>();
-                ev.deathzone = this;
+                var p = collider.gameObject.GetComponent<PlayerController>();
+
+                //ContactPoint2D[] collisionPoint = new ContactPoint2D[1];
+                //collider.GetContacts(collisionPoint);
+
+                //Debug.Log(collisionPoint[0].point);
+
+
+
+                if (p != null)
+                {
+                    var ev = Schedule<PlayerEnteredDeathZone>();
+                    ev.deathzone = this;
+
+                }
             }
         }
     }

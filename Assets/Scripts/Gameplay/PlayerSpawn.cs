@@ -14,11 +14,12 @@ namespace Platformer.Gameplay
         public override void Execute()
         {
             var player = model.player;
-            player.collider2d.enabled = true;
+            
             player.controlEnabled = false;
             if (player.audioSource && player.respawnAudio)
                 player.audioSource.PlayOneShot(player.respawnAudio);
             player.health.Increment();
+            player.spawnBody();
             player.Teleport(model.spawnPoint.transform.position);
             player.jumpState = PlayerController.JumpState.Grounded;
             player.animator.SetBool("dead", false);
@@ -28,6 +29,8 @@ namespace Platformer.Gameplay
 
             //** NEW
             player.modifier = "normal";
+            player.collider2d.enabled = true;
+            player.stopMotion = false;
             //** END NEW
         }
     }

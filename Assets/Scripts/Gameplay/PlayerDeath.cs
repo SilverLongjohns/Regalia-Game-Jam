@@ -16,46 +16,43 @@ namespace Platformer.Gameplay
 
         //** NEW
 
-        
 
         //** End NEW
 
         public override void Execute()
         {
             var player = model.player;
+            
             if (player.health.IsAlive)
             {
                 player.health.Die();
+                player.collider2d.enabled = false; // Gets turned back on in PlayerSpawn.cs
+                player.stopMotion = true;
+                player.lastDeathPosCenter = player.GetComponent<Rigidbody2D>().position;
+                player.lastDeathPosBottom = player.transform.GetChild(0).position;
+
                 model.virtualCamera.m_Follow = null;
                 model.virtualCamera.m_LookAt = null;
-                // player.collider.enabled = false;
                 player.controlEnabled = false;
-
-                // Spawn the body on death
-                Vector2 dims = player.GetComponent<BoxCollider2D>().size;
-                float x = 0;
-                float y = 0;
-                switch (player.modifier)
-                {
-                    case ("normal"):
-                        x = 0.2f;
-                        y = 0.2f;
-                        break;
-                    case ("big"):
-                        x = 3.0f;
-                        y = 3.0f;
-                        break;
-                }
-                Vector2 newScaleVect = new Vector2(x, y);
-                player.spawnBody(dims, newScaleVect);
-                Debug.Log(player.modifier);
-
-
+                
                 if (player.audioSource && player.ouchAudio)
                     player.audioSource.PlayOneShot(player.ouchAudio);
                 player.animator.SetTrigger("hurt");
                 player.animator.SetBool("dead", true);
+
+                float newScale = 1.0f;
+
+                // Spawn the body on death
+                switch (player.modifier)
+                {
+                    case ("normal"):
+                        break;
+                    case ("big"):
+                        newScale *= 2;
+                        break;
+                }
                 Simulation.Schedule<PlayerSpawn>(2);
+
             }
         }
     }
