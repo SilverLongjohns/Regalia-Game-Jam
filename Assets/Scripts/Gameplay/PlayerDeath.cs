@@ -40,17 +40,6 @@ namespace Platformer.Gameplay
                 player.animator.SetTrigger("hurt");
                 player.animator.SetBool("dead", true);
 
-                float newScale = 1.0f;
-
-                // Spawn the body on death
-                switch (player.modifier)
-                {
-                    case ("normal"):
-                        break;
-                    case ("big"):
-                        newScale *= 2;
-                        break;
-                }
                 Simulation.Schedule<PlayerSpawn>(2);
 
             }

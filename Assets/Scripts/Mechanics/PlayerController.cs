@@ -15,9 +15,10 @@ namespace Platformer.Mechanics
     public class PlayerController : KinematicObject
     {
         //** NEW
-
         public string modifier = "normal";
-        public GameObject dead_body;
+        public GameObject normalBody;
+        public GameObject wormholeBody;
+        private string parentWormholeName;
         public bool stopMotion = false;
         public Vector2 lastDeathPosCenter; // used to hold position of player while dying
         public Vector2 lastDeathPosBottom;
@@ -88,7 +89,8 @@ namespace Platformer.Mechanics
         public void spawnBody()
         {
             float newScale = 1.0f;
-
+            GameObject bodyType = normalBody;
+            Vector2 spawnPos = lastDeathPosBottom;
             // Spawn the body on death
             switch (this.modifier)
             {
@@ -97,20 +99,30 @@ namespace Platformer.Mechanics
                 case ("big"):
                     newScale *= 2;
                     break;
+                case ("wormhole"):
+                    bodyType = wormholeBody;
+                    spawnPos = lastDeathPosCenter;
+                    break;
             }
-
 
             // Adjust sprite size to the new scale
             // Note: Collider gets scaled at the same time
-            dead_body.transform.localScale *= newScale;
+            bodyType.transform.localScale *= newScale;
 
             // Spawn body
-            GameObject x = Instantiate(dead_body, lastDeathPosBottom, Quaternion.identity);
-            x.transform.parent = GameObject.Find("DeadBodies").transform;
+            GameObject newBody = Instantiate(bodyType, spawnPos, Quaternion.identity);
+            if (this.modifier == "wormhole")
+            {
+                GameObject wormholeParent = GameObject.Find(this.getWormholeParent());
+                wormholeParent.GetComponent<ModifierController>().setWormholeExit(newBody);
+                wormholeParent.GetComponent<ModifierController>().isLinked = true;
+            }
+
+            newBody.transform.parent = GameObject.Find("DeadBodies").transform;
 
 
             // Reset sprite size to normal
-            dead_body.transform.localScale /= newScale;
+            bodyType.transform.localScale /= newScale;
         }
 
         void UpdateJumpState()
@@ -172,6 +184,16 @@ namespace Platformer.Mechanics
                 velocity.y = 0;
                 this.GetComponent<Rigidbody2D>().position = lastDeathPosCenter;
             }
+        }
+
+        public void setWormholeParent(string parentName)
+        {
+            this.parentWormholeName = parentName;
+        }
+
+        public string getWormholeParent()
+        {
+            return this.parentWormholeName;
         }
 
         public enum JumpState

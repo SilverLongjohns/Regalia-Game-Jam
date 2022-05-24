@@ -55,9 +55,13 @@ MonoBehaviour:
   gravityModifier: 1
   velocity: {x: 0, y: 0}
   modifier: normal
-  dead_body: {fileID: 0}
+  normalBody: {fileID: 5686842000873245349, guid: b434fa16c2e23ef4a80caaf0e5d1957b,
+    type: 3}
+  wormholeBody: {fileID: 4406865207280028895, guid: ef2b43410e421134cac8aa8aab5abea4,
+    type: 3}
   stopMotion: 0
-  lastDeathPos: {x: 0, y: 0}
+  lastDeathPosCenter: {x: 0, y: 0}
+  lastDeathPosBottom: {x: 0, y: 0}
   jumpAudio: {fileID: 8300000, guid: 67975c08d56ceb147bad38572d805aa8, type: 3}
   respawnAudio: {fileID: 8300000, guid: e18959d46b63f3c4c8cc020a433cf848, type: 3}
   ouchAudio: {fileID: 8300000, guid: 6c05149e5a2fba64ba172e25a61074b7, type: 3}

@@ -10,7 +10,7 @@ namespace Platformer.Gameplay
     /// <summary>
     /// Fired when a Player collides with a Modifier.
     /// </summary>
-    /// <typeparam name="EnemyCollision"></typeparam>
+    /// <typeparam name="PlayerModifierCollision"></typeparam>
     public class PlayerModifierCollision : Simulation.Event<PlayerModifierCollision>
     {
         public ModifierController modifier;
@@ -22,7 +22,24 @@ namespace Platformer.Gameplay
         public override void Execute()
         {
             newModifier = modifier.modifierType;
-            player.modifier = newModifier;
+            Debug.Log(newModifier);
+            if (newModifier == "wormhole")
+            {
+                if (modifier.isLinked == false)
+                {
+                    player.modifier = "wormhole";
+                    modifier.isLinked = true;
+                }
+                else
+                {
+                    Debug.Log("Teleporting Player");
+                    player.transform.position = modifier.getWormholeExit().transform.position;
+                }
+            }
+            else
+            {
+                player.modifier = newModifier;
+            }
         }
     }
 }
