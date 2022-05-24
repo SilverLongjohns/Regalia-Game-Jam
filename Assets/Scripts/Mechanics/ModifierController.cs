@@ -19,6 +19,9 @@ namespace Platformer.Mechanics
 
         public string modifierType;
 
+        public bool isLinked = false; // only used for wormhole modifier
+        private GameObject wormholeExit;
+
         void Awake()
         {
             _collider = GetComponent<Collider2D>();
@@ -31,11 +34,20 @@ namespace Platformer.Mechanics
             if (player != null)
             {
                 var ev = Schedule<PlayerModifierCollision>();
+                player.setWormholeParent(this.name);
                 ev.player = player;
                 ev.modifier = this;
             }
         }
-/*
+        public void setWormholeExit(GameObject exit)
+        {
+            this.wormholeExit = exit;
+        }
+        public GameObject getWormholeExit()
+        {
+            return this.wormholeExit;
+        }
+/*  
         void Update()
         {
             if (path != null)
