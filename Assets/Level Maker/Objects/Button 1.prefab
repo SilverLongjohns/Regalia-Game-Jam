@@ -31,7 +31,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 4456356060995042908}
+  - {fileID: 8885544323525390059}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -127,8 +127,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   unpressed: {fileID: 21300000, guid: 58193d3a716774d4594f7be878036832, type: 3}
   pressed: {fileID: 21300000, guid: 57a342bb1d440b148b24a0757fabe7f6, type: 3}
-  wall: {fileID: 8160200612942028427, guid: ef51ca297da4d334f8986646b37355b1, type: 3}
---- !u!1001 &1676126761898442651
+--- !u!1001 &5896671165325766444
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -197,9 +196,9 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ef51ca297da4d334f8986646b37355b1, type: 3}
---- !u!4 &4456356060995042908 stripped
+--- !u!4 &8885544323525390059 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3070017140489699783, guid: ef51ca297da4d334f8986646b37355b1,
     type: 3}
-  m_PrefabInstance: {fileID: 1676126761898442651}
+  m_PrefabInstance: {fileID: 5896671165325766444}
   m_PrefabAsset: {fileID: 0}
