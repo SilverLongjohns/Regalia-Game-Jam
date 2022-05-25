@@ -12,17 +12,20 @@ namespace Platformer.Mechanics
         public Sprite unpressed;
         public Sprite pressed;
 
-        private bool isPressed = false;
         private int collisionCount = 0;
 
-        public GameObject wall;
+        private GameObject wall;
 
         // controlled object goes here
+
+        void Start()
+        {
+            this.wall = this.gameObject.transform.GetChild(0).gameObject;
+        }
 
         void OnTriggerEnter2D(Collider2D collider)
         {
             this.collisionCount += 1;
-            this.isPressed = true;
             wall.GetComponent<ButtonWallController>().openWall();
             this.GetComponent<SpriteRenderer>().sprite = pressed;
         }
@@ -32,21 +35,9 @@ namespace Platformer.Mechanics
             this.collisionCount -= 1;
             if (this.collisionCount <= 0)
             {
-                this.isPressed = false;
                 wall.GetComponent<ButtonWallController>().closeWall();
                 this.GetComponent<SpriteRenderer>().sprite = unpressed;
             }
         }
-
-        public void pressButton()
-        {
-            this.isPressed = true;
-        }
-
-        public void unpressButton()
-        {
-            this.isPressed = false;
-        }
-
     }
 }
