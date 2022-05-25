@@ -28,7 +28,6 @@ namespace Platformer.Gameplay
                 if (modifier.isLinked == false)
                 {
                     player.modifier = "wormhole";
-                    modifier.isLinked = true;
                 }
                 else
                 {

@@ -26,7 +26,6 @@ namespace Platformer.Gameplay
             if (player.health.IsAlive)
             {
                 player.health.Die();
-                player.collider2d.enabled = false; // Gets turned back on in PlayerSpawn.cs
                 player.stopMotion = true;
                 player.lastDeathPosCenter = player.GetComponent<Rigidbody2D>().position;
                 player.lastDeathPosBottom = player.transform.GetChild(0).position;
