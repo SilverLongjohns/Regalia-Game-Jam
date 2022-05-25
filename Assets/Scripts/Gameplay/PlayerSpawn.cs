@@ -14,7 +14,8 @@ namespace Platformer.Gameplay
         public override void Execute()
         {
             var player = model.player;
-            
+
+            player.collider2d.enabled = false; // Gets turned back on in PlayerSpawn.cs
             player.controlEnabled = false;
             if (player.audioSource && player.respawnAudio)
                 player.audioSource.PlayOneShot(player.respawnAudio);
