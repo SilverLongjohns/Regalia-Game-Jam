@@ -15,7 +15,8 @@ namespace Platformer.Mechanics
     public class PlayerController : KinematicObject
     {
         //** NEW
-        public string modifier = "normal";
+        public List<string> modifiers = new List<string>();
+        public string activeModifier;
         public GameObject normalBody;
         public GameObject wormholeBody;
         private string parentWormholeName;
@@ -92,7 +93,7 @@ namespace Platformer.Mechanics
             GameObject bodyType = normalBody;
             Vector2 spawnPos = lastDeathPosBottom;
             // Spawn the body on death
-            switch (this.modifier)
+            switch (this.activeModifier)
             {
                 case ("normal"):
                     break;
@@ -111,7 +112,7 @@ namespace Platformer.Mechanics
 
             // Spawn body
             GameObject newBody = Instantiate(bodyType, spawnPos, Quaternion.identity);
-            if (this.modifier == "wormhole")
+            if (this.activeModifier == "wormhole")
             {
                 GameObject wormholeParent = GameObject.Find(this.getWormholeParent());
                 wormholeParent.GetComponent<ModifierController>().setWormholeExit(newBody);
