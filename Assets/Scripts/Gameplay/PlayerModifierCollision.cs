@@ -27,7 +27,7 @@ namespace Platformer.Gameplay
             {
                 if (modifier.isLinked == false)
                 {
-                    player.modifier = "wormhole";
+                    player.activeModifier = "wormhole";
                 }
                 else
                 {
@@ -37,7 +37,7 @@ namespace Platformer.Gameplay
             }
             else
             {
-                player.modifier = newModifier;
+                player.modifiers.Add(newModifier);
             }
         }
     }
