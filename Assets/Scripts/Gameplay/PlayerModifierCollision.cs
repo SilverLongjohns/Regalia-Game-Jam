@@ -37,7 +37,10 @@ namespace Platformer.Gameplay
             }
             else
             {
-                player.modifiers.Add(newModifier);
+                if(!player.modifiers.Contains(newModifier))
+                {
+                    player.modifiers.Add(newModifier);
+                }
             }
         }
     }

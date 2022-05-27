@@ -55,6 +55,9 @@ namespace Platformer.Mechanics
 
         void Awake()
         {
+            modifiers.Add("normal");
+            activeModifier = modifiers[0];
+
             health = GetComponent<Health>();
             audioSource = GetComponent<AudioSource>();
             collider2d = GetComponent<Collider2D>();
@@ -74,10 +77,19 @@ namespace Platformer.Mechanics
                     stopJump = true;
                     Schedule<PlayerStopJump>().player = this;
                 }
-                //if (Input.GetKeyDown(KeyCode.U))
-                //{
-                //    spawnBody(new Vector2(1, 1));
-                //}
+
+                if (Input.GetKeyDown(KeyCode.Q))
+                {
+                    int numModifiers = modifiers.Count;
+                    int curModifier = modifiers.BinarySearch(activeModifier);
+
+                    if (curModifier < numModifiers)
+                    {
+                        activeModifier = modifiers[curModifier + 1];
+                    } else {
+                        activeModifier = modifiers[0];
+                    }
+                }
             }
             else
             {
@@ -96,6 +108,7 @@ namespace Platformer.Mechanics
             switch (this.activeModifier)
             {
                 case ("normal"):
+                    newScale *= 1;
                     break;
                 case ("big"):
                     newScale *= 2;
