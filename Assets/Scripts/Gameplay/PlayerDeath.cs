@@ -26,7 +26,7 @@ namespace Platformer.Gameplay
             if (player.health.IsAlive)
             {
                 player.health.Die();
-                player.stopMotion = true;
+                player.stopMotion = false;
                 player.lastDeathPosCenter = player.GetComponent<Rigidbody2D>().position;
                 player.lastDeathPosBottom = player.transform.GetChild(0).position;
 

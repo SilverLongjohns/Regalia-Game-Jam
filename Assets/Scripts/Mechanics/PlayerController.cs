@@ -5,6 +5,7 @@ using Platformer.Gameplay;
 using static Platformer.Core.Simulation;
 using Platformer.Model;
 using Platformer.Core;
+using UnityEngine.SceneManagement;
 
 namespace Platformer.Mechanics
 {
@@ -84,7 +85,6 @@ namespace Platformer.Mechanics
                     stopJump = true;
                     Schedule<PlayerStopJump>().player = this;
                 }
-
                 if (Input.GetKeyDown(KeyCode.Q))
                 {
                     int numModifiers = modifiers.Count;
@@ -144,8 +144,9 @@ namespace Platformer.Mechanics
                 wormholeParent.GetComponent<ModifierController>().isLinked = true;
             }
 
-            newBody.transform.parent = GameObject.Find("DeadBodies").transform;
-
+            // move new body to the persistent container
+            string deadBodyContainer = gameObject.scene.name + "Bodies";
+            newBody.transform.parent = GameObject.Find(deadBodyContainer).transform;
 
             // Reset sprite size to normal
             bodyType.transform.localScale /= newScale;
