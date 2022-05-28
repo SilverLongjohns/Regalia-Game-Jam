@@ -13,8 +13,7 @@ public class Preload : MonoBehaviour
     void Awake()
     {
         DontDestroyOnLoad(Instantiate(player));
-        SceneManager.LoadScene(1);
-
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
     // Update is called once per frame
