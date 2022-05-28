@@ -18,6 +18,7 @@ namespace Platformer.Mechanics
         public Bounds Bounds => _collider.bounds;
 
         public string modifierType;
+        public string modifierColor;
 
         public bool isLinked = false; // only used for wormhole modifier
         private GameObject wormholeExit;
