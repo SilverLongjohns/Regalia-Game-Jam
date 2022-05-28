@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class BodyController : MonoBehaviour
 {
+    void Awake()
+    {
+        DontDestroyOnLoad(this.gameObject.transform.parent.gameObject);
+    }
     // Start is called before the first frame update
     void Start()
     {

@@ -1,6 +1,8 @@
 using Platformer.Core;
 using Platformer.Model;
 using UnityEngine;
+using Cinemachine;
+using UnityEngine.SceneManagement;
 
 namespace Platformer.Mechanics
 {
@@ -20,6 +22,38 @@ namespace Platformer.Mechanics
         //conveniently configured inside the inspector.
         public PlatformerModel model = Simulation.GetModel<PlatformerModel>();
 
+        public GameObject player;
+        public string persistentObjectName;
+
+        void Awake()
+        {
+            persistentObjectName = getPersistentObjectName();
+
+            if (GameObject.Find(getPersistentObjectName()) == null)
+            {
+                GameObject persistentObject = new GameObject(getPersistentObjectName());
+                DontDestroyOnLoad(persistentObject);
+
+                GameObject deadBodies = new GameObject("DeadBodies");
+                DontDestroyOnLoad(deadBodies);
+                deadBodies.transform.SetParent(persistentObject.transform);
+
+                GameObject loadPoint = new GameObject("LoadPoint");
+                DontDestroyOnLoad(loadPoint);
+                loadPoint.transform.position = GameObject.Find("StartingPoint").transform.position;
+                loadPoint.transform.SetParent(persistentObject.transform);
+            }
+
+            GameObject.FindGameObjectsWithTag("Player")[0].transform.position = GameObject.Find(persistentObjectName + "/LoadPoint").transform.position;
+            GameObject.Find("CM vcam1").GetComponent<CinemachineVirtualCamera>().LookAt = GameObject.FindGameObjectsWithTag("Player")[0].transform;
+            GameObject.Find("CM vcam1").GetComponent<CinemachineVirtualCamera>().Follow = GameObject.FindGameObjectsWithTag("Player")[0].transform;
+        }
+
+        void Start()
+        {
+            loadAssets();
+        }
+
         void OnEnable()
         {
             Instance = this;
@@ -33,6 +67,17 @@ namespace Platformer.Mechanics
         void Update()
         {
             if (Instance == this) Simulation.Tick();
+        }
+
+        public string getPersistentObjectName()
+        {
+            return gameObject.scene.name + "Objects";
+        }
+
+        public void loadAssets()
+        {
+            GameObject.Find("CM vcam1").GetComponent<CinemachineVirtualCamera>().LookAt = GameObject.FindGameObjectsWithTag("Player")[0].transform;
+            GameObject.Find("CM vcam1").GetComponent<CinemachineVirtualCamera>().Follow = GameObject.FindGameObjectsWithTag("Player")[0].transform;
         }
     }
 }

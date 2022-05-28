@@ -14,6 +14,7 @@ namespace Platformer.Mechanics
     {
         void OnTriggerEnter2D(Collider2D collider)
         {
+
             if (collider.tag == "Player")
             {
                 var p = collider.gameObject.GetComponent<PlayerController>();
@@ -27,6 +28,7 @@ namespace Platformer.Mechanics
 
                 if (p != null)
                 {
+                    Debug.Log(collider.tag);
                     var ev = Schedule<PlayerEnteredDeathZone>();
                     ev.deathzone = this;
 
@@ -34,4 +36,4 @@ namespace Platformer.Mechanics
             }
         }
     }
-}
+};
