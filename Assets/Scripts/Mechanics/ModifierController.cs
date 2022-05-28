@@ -34,10 +34,9 @@ namespace Platformer.Mechanics
             var player = collision.gameObject.GetComponent<PlayerController>();
             if (player != null)
             {
-                var ev = Schedule<PlayerModifierCollision>();
-                player.setWormholeParent(this.name);
-                ev.player = player;
-                ev.modifier = this;
+                collision.gameObject.GetComponent<PlayerController>().modifiers.Add(modifierType);
+                collision.gameObject.GetComponent<PlayerController>().modifierColors.Add(modifierType, modifierColor);
+                Destroy(this.gameObject);
             }
         }
         public void setWormholeExit(GameObject exit)
