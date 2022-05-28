@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: d25f1478ba9f3824d9306e32c3fa8f22
+guid: c70b4bff77bfe94418d05a0de9fae97c
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -116,7 +116,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: PlayerIdle_0
+      name: Player Hurt_0
       rect:
         serializedVersion: 2
         x: 0
@@ -130,14 +130,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c2b12e41346378742bfc7f72a24262d5
-      internalID: -1163652377
+      spriteID: 1fd9761742cc9154f880a9edcf809d48
+      internalID: -2101570370
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PlayerIdle_1
+      name: Player Hurt_1
       rect:
         serializedVersion: 2
         x: 300
@@ -151,14 +151,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ae56df95d30a75f478beb42cddf33c67
-      internalID: -2101070183
+      spriteID: 6b2044c8045762741a6fa017ebb670a6
+      internalID: 1187711269
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PlayerIdle_2
+      name: Player Hurt_2
       rect:
         serializedVersion: 2
         x: 600
@@ -172,14 +172,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6f28748f6fe1b3545a1b96bb1a244b21
-      internalID: -835110968
+      spriteID: 532b3ae15692498488d35dcbfc59f7ec
+      internalID: 548808595
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PlayerIdle_3
+      name: Player Hurt_3
       rect:
         serializedVersion: 2
         x: 900
@@ -193,8 +193,71 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ebf16357a15025949adf729e4100b9ab
-      internalID: 1120854901
+      spriteID: e2332e2af1c2ac34695e408ae8ba019b
+      internalID: -1793726135
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player Hurt_4
+      rect:
+        serializedVersion: 2
+        x: 1200
+        y: 0
+        width: 300
+        height: 600
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1d9a22a5344baf04e92c1e4978284d02
+      internalID: 2127627007
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player Hurt_5
+      rect:
+        serializedVersion: 2
+        x: 1500
+        y: 0
+        width: 300
+        height: 600
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ecddb05aaa6d39a4ea0c246f53cdb359
+      internalID: 2136892591
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player Hurt_6
+      rect:
+        serializedVersion: 2
+        x: 1800
+        y: 0
+        width: 300
+        height: 600
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3c7403c35104bea42aff350fe25b15fa
+      internalID: -1775729050
       vertices: []
       indices: 
       edges: []
@@ -210,10 +273,13 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      PlayerIdle_0: -1163652377
-      PlayerIdle_2: -835110968
-      PlayerIdle_3: 1120854901
-      PlayerIdle_1: -2101070183
+      Player Hurt_2: 548808595
+      Player Hurt_0: -2101570370
+      Player Hurt_1: 1187711269
+      Player Hurt_6: -1775729050
+      Player Hurt_4: 2127627007
+      Player Hurt_3: -1793726135
+      Player Hurt_5: 2136892591
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

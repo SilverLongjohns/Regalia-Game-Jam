@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: d25f1478ba9f3824d9306e32c3fa8f22
+guid: a911a3f40f0f41a4ead4b74bdb953c03
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -116,7 +116,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: PlayerIdle_0
+      name: Player Land_0
       rect:
         serializedVersion: 2
         x: 0
@@ -130,71 +130,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c2b12e41346378742bfc7f72a24262d5
-      internalID: -1163652377
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: PlayerIdle_1
-      rect:
-        serializedVersion: 2
-        x: 300
-        y: 0
-        width: 300
-        height: 600
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: ae56df95d30a75f478beb42cddf33c67
-      internalID: -2101070183
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: PlayerIdle_2
-      rect:
-        serializedVersion: 2
-        x: 600
-        y: 0
-        width: 300
-        height: 600
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 6f28748f6fe1b3545a1b96bb1a244b21
-      internalID: -835110968
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: PlayerIdle_3
-      rect:
-        serializedVersion: 2
-        x: 900
-        y: 0
-        width: 300
-        height: 600
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: ebf16357a15025949adf729e4100b9ab
-      internalID: 1120854901
+      spriteID: b131414e5f2e2c14cbda102bf9e2d4fd
+      internalID: 10329497
       vertices: []
       indices: 
       edges: []
@@ -210,10 +147,7 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      PlayerIdle_0: -1163652377
-      PlayerIdle_2: -835110968
-      PlayerIdle_3: 1120854901
-      PlayerIdle_1: -2101070183
+      Player Land_0: 10329497
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

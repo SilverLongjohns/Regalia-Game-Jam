@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: d25f1478ba9f3824d9306e32c3fa8f22
+guid: a6bbedae1e7ed404c813df64fff1dba8
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -116,7 +116,133 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: PlayerIdle_0
+      name: PlayerRespawn_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 600
+        width: 300
+        height: 600
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 008937bad0efa3d4faa467d8fcd49735
+      internalID: -1681139199
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerRespawn_1
+      rect:
+        serializedVersion: 2
+        x: 300
+        y: 600
+        width: 300
+        height: 600
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 13f87c97c9fbaa945849deda8277959d
+      internalID: -1265322528
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerRespawn_2
+      rect:
+        serializedVersion: 2
+        x: 600
+        y: 600
+        width: 300
+        height: 600
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b8eddb85ca3eaed49826f81ee59dcaa3
+      internalID: -2063500248
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerRespawn_3
+      rect:
+        serializedVersion: 2
+        x: 900
+        y: 600
+        width: 300
+        height: 600
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a3fb22560fbb03a498f8142fa7ed83b6
+      internalID: -437588339
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerRespawn_4
+      rect:
+        serializedVersion: 2
+        x: 1200
+        y: 600
+        width: 300
+        height: 600
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cde21486325d1604d94e1d26cb9e528c
+      internalID: -1026984710
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerRespawn_5
+      rect:
+        serializedVersion: 2
+        x: 1500
+        y: 600
+        width: 300
+        height: 600
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fd2349d6f20dfbe4f8dce9a6995b98ca
+      internalID: 1352581758
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerRespawn_6
       rect:
         serializedVersion: 2
         x: 0
@@ -124,20 +250,20 @@ TextureImporter:
         width: 300
         height: 600
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c2b12e41346378742bfc7f72a24262d5
-      internalID: -1163652377
+      spriteID: 9fb8c83059293494ea689a0b0ba41f6d
+      internalID: 187384950
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PlayerIdle_1
+      name: PlayerRespawn_7
       rect:
         serializedVersion: 2
         x: 300
@@ -145,20 +271,20 @@ TextureImporter:
         width: 300
         height: 600
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ae56df95d30a75f478beb42cddf33c67
-      internalID: -2101070183
+      spriteID: d364796fef439944387fbcdab0b029e5
+      internalID: 2023308755
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PlayerIdle_2
+      name: PlayerRespawn_8
       rect:
         serializedVersion: 2
         x: 600
@@ -166,20 +292,20 @@ TextureImporter:
         width: 300
         height: 600
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6f28748f6fe1b3545a1b96bb1a244b21
-      internalID: -835110968
+      spriteID: 9ce7696fb9094e54fbc9d0834e7a89c0
+      internalID: -41237839
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PlayerIdle_3
+      name: PlayerRespawn_9
       rect:
         serializedVersion: 2
         x: 900
@@ -187,14 +313,35 @@ TextureImporter:
         width: 300
         height: 600
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ebf16357a15025949adf729e4100b9ab
-      internalID: 1120854901
+      spriteID: d48ce458c21a57b40bb0d959f12607e9
+      internalID: -84441502
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerRespawn_10
+      rect:
+        serializedVersion: 2
+        x: 1200
+        y: 0
+        width: 300
+        height: 600
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fb1d194ccbda9064ba8ce3d6d9391197
+      internalID: 472857045
       vertices: []
       indices: 
       edges: []
@@ -210,10 +357,17 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      PlayerIdle_0: -1163652377
-      PlayerIdle_2: -835110968
-      PlayerIdle_3: 1120854901
-      PlayerIdle_1: -2101070183
+      PlayerRespawn_4: -1026984710
+      PlayerRespawn_0: -1681139199
+      PlayerRespawn_2: -2063500248
+      PlayerRespawn_8: -41237839
+      PlayerRespawn_7: 2023308755
+      PlayerRespawn_10: 472857045
+      PlayerRespawn_1: -1265322528
+      PlayerRespawn_3: -437588339
+      PlayerRespawn_6: 187384950
+      PlayerRespawn_5: 1352581758
+      PlayerRespawn_9: -84441502
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
