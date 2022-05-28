@@ -13,6 +13,7 @@ public class Preload : MonoBehaviour
     void Awake()
     {
         DontDestroyOnLoad(Instantiate(player));
+
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
