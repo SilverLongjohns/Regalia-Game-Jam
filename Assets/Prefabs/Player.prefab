@@ -54,8 +54,8 @@ MonoBehaviour:
   minGroundNormalY: 0.9
   gravityModifier: 1
   velocity: {x: 0, y: 0}
-  normalBody: {fileID: 5686842000873245349, guid: b434fa16c2e23ef4a80caaf0e5d1957b,
-    type: 3}
+  stoneBody: {fileID: 0}
+  iceBody: {fileID: 0}
   wormholeBody: {fileID: 4406865207280028895, guid: ef2b43410e421134cac8aa8aab5abea4,
     type: 3}
   stopMotion: 0
@@ -288,7 +288,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.0022127628, y: -0.006563306}
+  m_Offset: {x: -0.062149256, y: -0.17263675}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -299,7 +299,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.5, y: 1}
+  m_Size: {x: 0.8757015, y: 1.6547265}
   m_EdgeRadius: 0
 --- !u!1 &4112612958540195060
 GameObject:

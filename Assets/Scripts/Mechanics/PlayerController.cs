@@ -16,7 +16,8 @@ namespace Platformer.Mechanics
     public class PlayerController : KinematicObject
     {
         //** NEW
-        public GameObject normalBody;
+        public GameObject stoneBody;
+        public GameObject iceBody;
         public GameObject wormholeBody;
         private string parentWormholeName;
         public bool stopMotion = false;
@@ -58,9 +59,10 @@ namespace Platformer.Mechanics
 
         void Awake()
         {
-            modifiers.Add("normal");
-            modifierColors.Add("normal", "#ffffff");
-            activeModifier = modifiers[0];
+            //modifiers.Add("normal");
+            //modifierColors.Add("normal", "#ffffff");
+            //activeModifier = modifiers[0];
+            activeModifier = "normal";
 
             health = GetComponent<Health>();
             audioSource = GetComponent<AudioSource>();
@@ -68,9 +70,9 @@ namespace Platformer.Mechanics
             spriteRenderer = GetComponent<SpriteRenderer>();
             animator = GetComponent<Animator>();
 
-            Color playerColor;
-            ColorUtility.TryParseHtmlString(modifierColors["normal"], out playerColor);
-            spriteRenderer.color = playerColor;
+            //Color playerColor;
+            //ColorUtility.TryParseHtmlString(modifierColors["normal"], out playerColor);
+            //spriteRenderer.color = playerColor;
         }
 
         protected override void Update()
@@ -114,20 +116,23 @@ namespace Platformer.Mechanics
         public void spawnBody()
         {
             float newScale = 1.0f;
-            GameObject bodyType = normalBody;
+            GameObject bodyType = stoneBody;
             Vector2 spawnPos = lastDeathPosBottom;
             // Spawn the body on death
             switch (this.activeModifier)
             {
-                case ("normal"):
-                    newScale *= 1;
+                case ("stone"):
+                    newScale = 1;
                     break;
-                case ("big"):
-                    newScale *= 2;
+                case ("ice"):
+                    newScale *= 1;
                     break;
                 case ("wormhole"):
                     bodyType = wormholeBody;
                     spawnPos = lastDeathPosCenter;
+                    break;
+                case ("normal"):
+                    Debug.Log("how the hell are you here?");
                     break;
             }
 
