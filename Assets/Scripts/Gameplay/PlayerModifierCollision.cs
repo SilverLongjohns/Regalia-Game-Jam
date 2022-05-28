@@ -15,19 +15,21 @@ namespace Platformer.Gameplay
     {
         public ModifierController modifier;
         public PlayerController player;
-        public string newModifier;
+        public string newModifierName;
+        public string newModifierColor;
 
         PlatformerModel model = Simulation.GetModel<PlatformerModel>();
 
         public override void Execute()
         {
-            newModifier = modifier.modifierType;
-            Debug.Log(newModifier);
-            if (newModifier == "wormhole")
+            newModifierName = modifier.modifierType;
+            newModifierColor = modifier.modifierColor;
+            Debug.Log(newModifierName);
+            if (newModifierName == "wormhole")
             {
                 if (modifier.isLinked == false)
                 {
-                    player.modifier = "wormhole";
+                    player.activeModifier = "wormhole";
                 }
                 else
                 {
@@ -37,7 +39,11 @@ namespace Platformer.Gameplay
             }
             else
             {
-                player.modifier = newModifier;
+                if(!player.modifiers.Contains(newModifierName))
+                {
+                    player.modifiers.Add(newModifierName);
+                    player.modifierColors.Add(newModifierName, newModifierColor);
+                }
             }
         }
     }
