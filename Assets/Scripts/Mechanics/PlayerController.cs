@@ -15,8 +15,6 @@ namespace Platformer.Mechanics
     public class PlayerController : KinematicObject
     {
         //** NEW
-        public List<string> modifiers = new List<string>();
-        public string activeModifier;
         public GameObject normalBody;
         public GameObject wormholeBody;
         private string parentWormholeName;
@@ -24,6 +22,10 @@ namespace Platformer.Mechanics
         public Vector2 lastDeathPosCenter; // used to hold position of player while dying
         public Vector2 lastDeathPosBottom;
         //** END NEW
+
+        public List<string> modifiers = new List<string>();
+        public string activeModifier;
+        public Dictionary<string, string> modifierColors = new Dictionary<string, string>();
 
         public AudioClip jumpAudio;
         public AudioClip respawnAudio;
@@ -56,6 +58,7 @@ namespace Platformer.Mechanics
         void Awake()
         {
             modifiers.Add("normal");
+            modifierColors.Add("normal", "#ffffff");
             activeModifier = modifiers[0];
 
             health = GetComponent<Health>();
@@ -63,6 +66,10 @@ namespace Platformer.Mechanics
             collider2d = GetComponent<Collider2D>();
             spriteRenderer = GetComponent<SpriteRenderer>();
             animator = GetComponent<Animator>();
+
+            Color playerColor;
+            ColorUtility.TryParseHtmlString(modifierColors["normal"], out playerColor);
+            spriteRenderer.color = playerColor;
         }
 
         protected override void Update()
@@ -89,6 +96,11 @@ namespace Platformer.Mechanics
                     } else {
                         activeModifier = modifiers[0];
                     }
+
+                    Color playerColor;
+                    ColorUtility.TryParseHtmlString(modifierColors[activeModifier], out playerColor);
+                    spriteRenderer.color = playerColor;
+
                 }
             }
             else
