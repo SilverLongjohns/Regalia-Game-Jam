@@ -29,7 +29,7 @@ namespace Platformer.Gameplay
             Simulation.Schedule<EnablePlayerInput>(2f);
 
             //** NEW
-            player.modifier = "normal";
+            player.activeModifier = "normal";
             player.collider2d.enabled = true;
             player.stopMotion = false;
             //** END NEW
