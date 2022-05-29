@@ -14,11 +14,6 @@ namespace Platformer.Gameplay
     {
         PlatformerModel model = Simulation.GetModel<PlatformerModel>();
 
-        //** NEW
-
-
-        //** End NEW
-
         public override void Execute()
         {
             var player = model.player;
@@ -27,8 +22,6 @@ namespace Platformer.Gameplay
             {
                 player.health.Die();
                 player.stopMotion = false;
-                player.lastDeathPosCenter = player.GetComponent<Rigidbody2D>().position;
-                player.lastDeathPosBottom = player.transform.GetChild(0).position;
 
                 model.virtualCamera.m_Follow = null;
                 model.virtualCamera.m_LookAt = null;

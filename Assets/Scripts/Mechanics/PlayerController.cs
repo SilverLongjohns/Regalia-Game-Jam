@@ -23,6 +23,8 @@ namespace Platformer.Mechanics
         public bool stopMotion = false;
         public Vector2 lastDeathPosCenter; // used to hold position of player while dying
         public Vector2 lastDeathPosBottom;
+        private bool isKicking = false;
+        private int kickFrameCount = 0;
         //** END NEW
 
         public List<string> modifiers = new List<string>();
@@ -90,42 +92,59 @@ namespace Platformer.Mechanics
                 if (Input.GetKeyDown(KeyCode.Q))
                 {
                     int numModifiers = modifiers.Count;
-                    int curModifier = modifiers.BinarySearch(activeModifier);
+                    int newModifier = modifiers.IndexOf(activeModifier) + 1;
 
-                    if (curModifier < numModifiers)
+                    if (newModifier < numModifiers)
                     {
-                        activeModifier = modifiers[curModifier + 1];
+                        activeModifier = modifiers[newModifier];
                     } else {
+                        
                         activeModifier = modifiers[0];
                     }
 
                     Color playerColor;
                     ColorUtility.TryParseHtmlString(modifierColors[activeModifier], out playerColor);
                     spriteRenderer.color = playerColor;
+                }
+                if (Input.GetKeyDown(KeyCode.R))
+                {
+                    // Reset last body
+                    string deadBodyContainer = gameObject.scene.name + "Bodies";
+                    int bodyToDestroy = GameObject.Find(deadBodyContainer).transform.childCount - 1;
+                    Destroy(GameObject.Find(deadBodyContainer).transform.GetChild(bodyToDestroy).gameObject);
 
                 }
+                if (Input.GetKeyDown(KeyCode.F))
+                {
+                    // Kick Ice Body
+                    Schedule<PlayerKicks>();
+                } 
             }
             else
             {
                 move.x = 0;
             }
             UpdateJumpState();
+            UpdateKickHitBox();
             base.Update();
         }
 
         public void spawnBody()
         {
             float newScale = 1.0f;
+            lastDeathPosCenter = gameObject.GetComponent<Rigidbody2D>().position;
+            lastDeathPosBottom = transform.GetChild(0).position;
+
             GameObject bodyType = stoneBody;
             Vector2 spawnPos = lastDeathPosBottom;
             // Spawn the body on death
             switch (this.activeModifier)
             {
                 case ("stone"):
-                    newScale = 1;
+                    bodyType = stoneBody;
                     break;
                 case ("ice"):
-                    newScale *= 1;
+                    bodyType = iceBody;
                     break;
                 case ("wormhole"):
                     bodyType = wormholeBody;
@@ -155,6 +174,37 @@ namespace Platformer.Mechanics
 
             // Reset sprite size to normal
             bodyType.transform.localScale /= newScale;
+        }
+
+        private void UpdateKickHitBox()
+        {
+            // when kick is enabled, count for 5 frames then disable
+            if (isKicking)
+            {
+                if (kickFrameCount > 1)
+                {
+                    kickFrameCount += 1;
+                }
+                else
+                { 
+                    gameObject.transform.Find("Kick").gameObject.GetComponent<BoxCollider2D>().enabled = false;
+                }
+            }
+            
+            Vector3 newDirection;
+            if (velocity.x > 0)
+            {
+                newDirection = new Vector3(1.0f, 1.0f, 1.0f);
+            }
+            else if (velocity.x < 0)
+            {
+                newDirection = new Vector3(-1.0f, 1.0f, 1.0f);
+            }
+            else
+            {
+                return;
+            }
+            gameObject.transform.Find("Kick").localScale = newDirection;
         }
 
         void UpdateJumpState()
@@ -228,6 +278,18 @@ namespace Platformer.Mechanics
             return this.parentWormholeName;
         }
 
+        public bool getKicking()
+        {
+            return isKicking;
+        }
+
+        public void toggleKick()
+        {
+            // toggles between on/off
+            gameObject.transform.Find("Kick").gameObject.GetComponent<BoxCollider2D>().enabled ^= true;
+            isKicking ^= true;
+        }
+
         public enum JumpState
         {
             Grounded,
@@ -235,11 +297,6 @@ namespace Platformer.Mechanics
             Jumping,
             InFlight,
             Landed
-        }
-        public enum Modifiers
-        {
-            Normal,
-            Big
         }
     }
 }
