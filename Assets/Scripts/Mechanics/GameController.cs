@@ -22,8 +22,7 @@ namespace Platformer.Mechanics
         //conveniently configured inside the inspector.
         public PlatformerModel model = Simulation.GetModel<PlatformerModel>();
 
-        public GameObject player;
-        public string persistentObjectName;
+        private string persistentObjectName;
 
         void Awake()
         {
@@ -43,8 +42,8 @@ namespace Platformer.Mechanics
                 loadPoint.transform.position = GameObject.Find("StartingPoint").transform.position;
                 loadPoint.transform.SetParent(persistentObject.transform);
             }
-
-            GameObject.FindGameObjectsWithTag("Player")[0].transform.position = GameObject.Find(persistentObjectName + "/LoadPoint").transform.position;
+            model.player = GameObject.FindGameObjectsWithTag("Player")[0].GetComponent<PlayerController>();
+            model.player.gameObject.transform.position = GameObject.Find(persistentObjectName + "/LoadPoint").transform.position;
             GameObject.Find("CM vcam1").GetComponent<CinemachineVirtualCamera>().LookAt = GameObject.FindGameObjectsWithTag("Player")[0].transform;
             GameObject.Find("CM vcam1").GetComponent<CinemachineVirtualCamera>().Follow = GameObject.FindGameObjectsWithTag("Player")[0].transform;
         }

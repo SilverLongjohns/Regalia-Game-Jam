@@ -4,8 +4,11 @@ MonoImporter:
   externalObjects: {}
   serializedVersion: 2
   defaultReferences:
-  - dead_body: {fileID: 6158049068279693409, guid: 647c317bf1a6c8443abc28132ccd59ab,
+  - stoneBody: {fileID: 5150743828269568737, guid: e1d26a22a7c90bd41be136e9402f18e3,
       type: 3}
+  - iceBody: {fileID: 5150743828269568737, guid: f0f2949cf9d681d46b6e166605e3de8c,
+      type: 3}
+  - wormholeBody: {instanceID: 0}
   - jumpAudio: {instanceID: 0}
   - respawnAudio: {instanceID: 0}
   - ouchAudio: {instanceID: 0}
