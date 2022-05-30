@@ -13,10 +13,10 @@ namespace Platformer.Mechanics
     public class DeathZone : MonoBehaviour
     {
         
-        void OnCollisionEnter2D(Collider2D collider)
+        void OnCollisionEnter2D(Collision2D collider)
         {
 
-            if (collider.tag == "Player")
+            if (collider.collider.tag == "Player")
             {
                 var p = collider.gameObject.GetComponent<PlayerController>();
 
