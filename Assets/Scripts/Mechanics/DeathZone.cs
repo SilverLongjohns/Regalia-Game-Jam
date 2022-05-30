@@ -28,10 +28,8 @@ namespace Platformer.Mechanics
 
                 if (p != null)
                 {
-                    Debug.Log(collider.tag);
                     var ev = Schedule<PlayerEnteredDeathZone>();
                     ev.deathzone = this;
-
                 }
             }
         }
