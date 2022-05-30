@@ -12,7 +12,8 @@ namespace Platformer.Mechanics
     /// </summary>
     public class DeathZone : MonoBehaviour
     {
-        void OnTriggerEnter2D(Collider2D collider)
+        
+        void OnCollisionEnter2D(Collider2D collider)
         {
 
             if (collider.tag == "Player")
