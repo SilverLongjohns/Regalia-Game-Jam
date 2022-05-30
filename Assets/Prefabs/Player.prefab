@@ -66,9 +66,9 @@ MonoBehaviour:
   kickFrameCount: 0
   modifiers: []
   activeModifier: 
-  jumpAudio: {fileID: 8300000, guid: 67975c08d56ceb147bad38572d805aa8, type: 3}
-  respawnAudio: {fileID: 8300000, guid: e18959d46b63f3c4c8cc020a433cf848, type: 3}
-  ouchAudio: {fileID: 8300000, guid: 6c05149e5a2fba64ba172e25a61074b7, type: 3}
+  jumpAudio: {fileID: 8300000, guid: 8830dc82044dd1749b7387b253d171fc, type: 3}
+  respawnAudio: {fileID: 8300000, guid: 1c3ca1a4ab6e84548b95af880ffaea29, type: 3}
+  ouchAudio: {fileID: 8300000, guid: a5eca909f3a314a41ae60b5411d2ec5c, type: 3}
   maxSpeed: 3
   jumpTakeOffSpeed: 7
   jumpState: 0
