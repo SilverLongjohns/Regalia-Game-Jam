@@ -43,11 +43,11 @@ namespace Platformer.Mechanics
             {
                 if(collision.collider.bounds.center.x > gameObject.GetComponent<BoxCollider2D>().bounds.center.x)
                 {
-                    gameObject.transform.flipX = true;
+                    gameObject.transform.GetComponent<SpriteRenderer>().flipX = true;
                 }
                 else
                 {
-                    gameObject.transform.flipX = false;
+                    gameObject.transform.GetComponent<SpriteRenderer>().flipX = false;
                 }
                 var ev = Schedule<PlayerEnemyCollision>();
                 ev.player = player;
