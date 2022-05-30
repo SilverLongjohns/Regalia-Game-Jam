@@ -52,6 +52,7 @@ namespace Platformer.Mechanics
         public bool controlEnabled = true;
 
         bool jump;
+        int playerLayer, platformLayer;
         Vector2 move;
         SpriteRenderer spriteRenderer;
         internal Animator animator;
@@ -71,6 +72,8 @@ namespace Platformer.Mechanics
             collider2d = GetComponent<Collider2D>();
             spriteRenderer = GetComponent<SpriteRenderer>();
             animator = GetComponent<Animator>();
+            playerLayer = LayerMask.NameToLayer ( "Player" );
+            platformLayer = LayerMask.NameToLayer ( "Platform" );
 
             //Color playerColor;
             //ColorUtility.TryParseHtmlString(modifierColors["normal"], out playerColor);
@@ -118,6 +121,10 @@ namespace Platformer.Mechanics
                     // Kick Ice Body
                     Schedule<PlayerKicks>();
                 } 
+                if (Input.GetKeyDown(KeyCode.S))
+                {
+                    StartCoroutine ("platformDescend");
+                }
             }
             else
             {
@@ -126,6 +133,14 @@ namespace Platformer.Mechanics
             UpdateJumpState();
             UpdateKickHitBox();
             base.Update();
+        }
+
+        IEnumerator platformDescend()
+        {
+            Debug.Log("yeet");
+            Physics2D.IgnoreLayerCollision(playerLayer, platformLayer, true);
+            yield return new WaitForSeconds (1f);
+            Physics2D.IgnoreLayerCollision(playerLayer, platformLayer, false);
         }
 
         public void spawnBody()
