@@ -1,8 +1,11 @@
 using Platformer.Core;
 using Platformer.Mechanics;
 using Platformer.Model;
+using Platformer.Gameplay;
 using UnityEngine;
 using static Platformer.Core.Simulation;
+using System.Collections;
+using System.Collections.Generic;
 
 namespace Platformer.Gameplay
 {
@@ -28,9 +31,10 @@ namespace Platformer.Gameplay
             {
                 player.spawnBody();
             }
-            
+
             //player.animator.SetBool("dead", false);
-            player.Teleport(model.spawnPoint.transform.position);
+            string persistentObjectName = GameObject.Find("GameController").GetComponent<GameController>().getPersistentObjectName();
+            player.Teleport(GameObject.Find(persistentObjectName + "/LoadPoint").transform.position);
             player.jumpState = PlayerController.JumpState.Grounded;
             model.virtualCamera.m_Follow = player.transform;
             model.virtualCamera.m_LookAt = player.transform;

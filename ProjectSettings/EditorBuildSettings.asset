@@ -26,7 +26,7 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/Blevel 1-4.unity
     guid: bc687ba5703ff644bac092cb67e24533
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Blevel 1-5.unity
     guid: 546cfc1df72151145af68c3b609197c5
   - enabled: 1
