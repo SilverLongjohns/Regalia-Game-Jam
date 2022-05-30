@@ -1,8 +1,21 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
 guid: 711c84c377d4c4d45bcba6ede7b7f043
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}
+=======
+<<<<<<<< HEAD:Assets/Level Maker/EnemySprites/Materials.meta
+guid: 711c84c377d4c4d45bcba6ede7b7f043
+folderAsset: yes
+DefaultImporter:
+========
+guid: d6ed479843c31a541810b8f416373c2b
+NativeFormatImporter:
+>>>>>>>> main:Assets/Level Maker/Animations/IcePowerUp_0.controller.meta
+  externalObjects: {}
+  mainObjectFileID: 9100000
+>>>>>>> dcae95c2bde755078875710a7a6ff31c72fe126a
   userData: 
   assetBundleName: 
   assetBundleVariant: 

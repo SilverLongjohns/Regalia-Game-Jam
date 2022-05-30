@@ -1,8 +1,15 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/Level Maker/Animations/SleepPowerUp.anim.meta
 guid: bad86692f131d234faea823153694794
 NativeFormatImporter:
   externalObjects: {}
   mainObjectFileID: 7400000
+========
+guid: 14f75baf118c3994f8982ad432dae16f
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 9100000
+>>>>>>>> main:Assets/Level Maker/Animations/SleepPowerUp_0.controller.meta
   userData: 
   assetBundleName: 
   assetBundleVariant: 
