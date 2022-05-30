@@ -15,6 +15,9 @@ namespace Platformer.Mechanics
         public PatrolPath path;
         public AudioClip ouch;
 
+        public bool isHungry = true;
+        public float bounceHeight = 1.0f;
+
         internal PatrolPath.Mover mover;
         internal AnimationController control;
         internal Collider2D _collider;
@@ -39,6 +42,7 @@ namespace Platformer.Mechanics
                 var ev = Schedule<PlayerEnemyCollision>();
                 ev.player = player;
                 ev.enemy = this;
+                ev.bounceHeight = bounceHeight;
             }
         }
 

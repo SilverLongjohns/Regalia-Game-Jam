@@ -20,6 +20,7 @@ namespace Platformer.Gameplay
         public override void Execute()
         {
             var ev = Simulation.Schedule<PlayerDeath>(0);
+            ev.dropBody = true;
         }
     }
 }

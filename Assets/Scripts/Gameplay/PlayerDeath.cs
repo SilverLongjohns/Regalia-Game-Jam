@@ -14,10 +14,7 @@ namespace Platformer.Gameplay
     {
         PlatformerModel model = Simulation.GetModel<PlatformerModel>();
 
-        //** NEW
-
-
-        //** End NEW
+        public bool dropBody;
 
         public override void Execute()
         {
@@ -27,8 +24,6 @@ namespace Platformer.Gameplay
             {
                 player.health.Die();
                 player.stopMotion = false;
-                player.lastDeathPosCenter = player.GetComponent<Rigidbody2D>().position;
-                player.lastDeathPosBottom = player.transform.GetChild(0).position;
 
                 model.virtualCamera.m_Follow = null;
                 model.virtualCamera.m_LookAt = null;
@@ -38,8 +33,9 @@ namespace Platformer.Gameplay
                     player.audioSource.PlayOneShot(player.ouchAudio);
                 player.animator.SetTrigger("hurt");
                 player.animator.SetBool("dead", true);
-
-                Simulation.Schedule<PlayerSpawn>(2);
+                player.playDeathAnimation();
+                var ev = Simulation.Schedule<PlayerSpawn>(2);
+                ev.dropBody = dropBody;
 
             }
         }

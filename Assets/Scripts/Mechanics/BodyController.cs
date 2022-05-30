@@ -19,4 +19,23 @@ public class BodyController : MonoBehaviour
     {
         
     }
+
+    void OnTriggerEnter2D(Collider2D collision)
+    {
+        var kick = collision.gameObject;
+        if (gameObject.transform.parent.tag == "IceBody" && collision.gameObject.transform.tag == "Kick")
+        {
+            Debug.Log("kicking Iceblock");
+            if (collision.bounds.center.x < gameObject.GetComponent<BoxCollider2D>().bounds.center.x)
+            {
+                Debug.Log("Push Right");
+                gameObject.GetComponent<Rigidbody2D>().AddForce(Vector2.right * 10, ForceMode2D.Impulse);
+            }
+            else
+            {
+                Debug.Log("Push Left");
+                gameObject.GetComponent<Rigidbody2D>().AddForce(Vector2.left * 10, ForceMode2D.Impulse);
+            }
+        }
+    }
 }

@@ -6,6 +6,9 @@ TagManager:
   tags:
   - TutorialRequirement
   - Modifier
+  - Kick
+  - IceBody
+  - StoneBody
   layers:
   - Default
   - TransparentFX

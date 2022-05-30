@@ -14,7 +14,7 @@ public static class SceneController
     public enum Scene
     {
         Level1,
-        Level2
+        Level2,
     }
 
     public static void Load(Scene scene)
