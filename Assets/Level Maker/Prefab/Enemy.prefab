@@ -167,6 +167,7 @@ MonoBehaviour:
   ouch: {fileID: 8300000, guid: b7f741588644cd64bbee6387cb54a96d, type: 3}
   isHungry: 1
   bounceHeight: 10
+  sleeping: {fileID: -934929500, guid: ed0a73d1f15b723428567a3d4814eb23, type: 3}
 --- !u!82 &5843668731025413174
 AudioSource:
   m_ObjectHideFlags: 0

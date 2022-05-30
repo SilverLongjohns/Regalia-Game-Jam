@@ -44,6 +44,8 @@ namespace Platformer.Gameplay
                 {
                     enemy.GetComponent<EnemyController>().isHungry = false;
                     anim.SetTrigger("goSleep");
+                    string sceneName = enemy.gameObject.scene.name + "Objects";
+                    enemy.gameObject.transform.parent = GameObject.Find(sceneName).transform.Find("SleepingEnemies").transform;
                 }
                 
                 if(enemy.path)
