@@ -55,14 +55,15 @@ MonoBehaviour:
   minGroundNormalY: 0.9
   gravityModifier: 1
   velocity: {x: 0, y: 0}
-  stoneBody: {fileID: 2034642388386181821, guid: 72ac9f14ddc4e0b4f9b2c46a86c07ef0,
+  stoneBody: {fileID: 2034642388386181821, guid: 280752ecc965ef949a937f455282a8ca,
     type: 3}
-  iceBody: {fileID: 2466322078962418116, guid: a8becf077372a6d489c637b206f80557, type: 3}
+  iceBody: {fileID: 2466322078962418116, guid: 8744363944db8eb468753fb5f892b6c4, type: 3}
   wormholeBody: {fileID: 4406865207280028895, guid: ef2b43410e421134cac8aa8aab5abea4,
     type: 3}
   stopMotion: 0
   lastDeathPosCenter: {x: 0, y: 0}
   lastDeathPosBottom: {x: 0, y: 0}
+  kickFrameCount: 0
   modifiers: []
   activeModifier: 
   jumpAudio: {fileID: 8300000, guid: 67975c08d56ceb147bad38572d805aa8, type: 3}
