@@ -24,14 +24,22 @@ namespace Platformer.Mechanics
         internal AudioSource _audio;
         SpriteRenderer spriteRenderer;
 
+        [SerializeField] Sprite sleeping;
+
         public Bounds Bounds => _collider.bounds;
 
         void Awake()
         {
+            Debug.Log("hello!");
             control = GetComponent<AnimationController>();
             _collider = GetComponent<Collider2D>();
             _audio = GetComponent<AudioSource>();
             spriteRenderer = GetComponent<SpriteRenderer>();
+            if (!isHungry)
+            {
+                spriteRenderer.sprite = sleeping;
+                gameObject.GetComponent<Animator>().SetBool("isSleeping", true);
+            }
         }
 
         void OnCollisionEnter2D(Collision2D collision)

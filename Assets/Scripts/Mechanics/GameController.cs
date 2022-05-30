@@ -41,15 +41,24 @@ namespace Platformer.Mechanics
                 DontDestroyOnLoad(loadPoint);
                 loadPoint.transform.position = GameObject.Find("StartingPoint").transform.position;
                 loadPoint.transform.SetParent(persistentObject.transform);
+
+                GameObject sleepingEnemies = new GameObject("SleepingEnemies");
+                DontDestroyOnLoad(sleepingEnemies);
+                sleepingEnemies.transform.SetParent(persistentObject.transform);
+
+                GameObject grabbedPowerups = new GameObject("GrabbedPowerups");
+                DontDestroyOnLoad(grabbedPowerups);
+                grabbedPowerups.transform.SetParent(persistentObject.transform);
             }
+
             model.player = GameObject.FindGameObjectsWithTag("Player")[0].GetComponent<PlayerController>();
             model.player.gameObject.transform.position = GameObject.Find(persistentObjectName + "/LoadPoint").transform.position;
-            GameObject.Find("CM vcam1").GetComponent<CinemachineVirtualCamera>().LookAt = GameObject.FindGameObjectsWithTag("Player")[0].transform;
-            GameObject.Find("CM vcam1").GetComponent<CinemachineVirtualCamera>().Follow = GameObject.FindGameObjectsWithTag("Player")[0].transform;
+            loadAssets();
         }
 
         void Start()
         {
+            Debug.Log("running");
             loadAssets();
         }
 
@@ -77,6 +86,50 @@ namespace Platformer.Mechanics
         {
             GameObject.Find("CM vcam1").GetComponent<CinemachineVirtualCamera>().LookAt = GameObject.FindGameObjectsWithTag("Player")[0].transform;
             GameObject.Find("CM vcam1").GetComponent<CinemachineVirtualCamera>().Follow = GameObject.FindGameObjectsWithTag("Player")[0].transform;
+            string sceneName = gameObject.scene.name + "Objects";
+
+            GameObject[] gameSceneObjects = SceneManager.GetSceneByName(gameObject.scene.name).GetRootGameObjects();
+
+            GameObject sleepingEnemies = GameObject.Find(sceneName).transform.Find("SleepingEnemies").gameObject;
+            GameObject grabbedPowerups = GameObject.Find(sceneName).transform.Find("GrabbedPowerups").gameObject;
+
+            try
+            {
+                for (int i = 0; i <= sleepingEnemies.transform.childCount; i++)
+                {
+                    Debug.Log(i);
+                    for (int j = 0; j < gameSceneObjects.Length; j++)
+                    {
+                        if (gameSceneObjects[j].name == sleepingEnemies.transform.GetChild(i).name)
+                        {
+                            gameSceneObjects[j].SetActive(false);
+                            break;
+                        }
+                    }
+                }
+            }
+            catch
+            {
+                Debug.Log("Gamecontroller.cs: No enemies in persistentObject");
+            }
+            try
+            {
+                for (int i = 0; i < grabbedPowerups.transform.childCount; i++)
+                {
+                    for (int j = 0; j < gameSceneObjects.Length; j++)
+                    {
+                        if (gameSceneObjects[j].name == grabbedPowerups.transform.GetChild(i).name)
+                        {
+                            gameSceneObjects[j].SetActive(false);
+                            break;
+                        }
+                    }
+                }
+            }
+            catch
+            {
+                Debug.Log("Gamecontroller.cs: No pickups in persistentObject");
+            }
         }
     }
 }

@@ -36,7 +36,9 @@ namespace Platformer.Mechanics
             {
                 player.modifiers.Add(modifierType);
                 player.modifierColors.Add(modifierType, modifierColor);
-                Destroy(this.gameObject);
+                string sceneName = gameObject.scene.name + "Objects";
+                gameObject.GetComponent<SpriteRenderer>().enabled = false;
+                this.gameObject.transform.parent = GameObject.Find(sceneName).transform.Find("GrabbedPowerups").transform;
             }
         }
         public void setWormholeExit(GameObject exit)
