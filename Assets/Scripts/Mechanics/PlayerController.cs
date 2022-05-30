@@ -24,7 +24,7 @@ namespace Platformer.Mechanics
         public Vector2 lastDeathPosCenter; // used to hold position of player while dying
         public Vector2 lastDeathPosBottom;
         private bool isKicking = false;
-        private int kickFrameCount = 0;
+        public int kickFrameCount = 0;
         //** END NEW
 
         public List<string> modifiers = new List<string>();
@@ -109,10 +109,9 @@ namespace Platformer.Mechanics
                 if (Input.GetKeyDown(KeyCode.R))
                 {
                     // Reset last body
-                    string deadBodyContainer = gameObject.scene.name + "Bodies";
-                    int bodyToDestroy = GameObject.Find(deadBodyContainer).transform.childCount - 1;
-                    Destroy(GameObject.Find(deadBodyContainer).transform.GetChild(bodyToDestroy).gameObject);
-
+                    string deadBodyContainer = GameObject.Find("GameController").scene.name + "Objects";
+                    int bodyToDestroy = GameObject.Find(deadBodyContainer).transform.Find("DeadBodies").transform.childCount - 1;
+                    Destroy(GameObject.Find(deadBodyContainer).transform.Find("DeadBodies").transform.GetChild(bodyToDestroy).gameObject);
                 }
                 if (Input.GetKeyDown(KeyCode.F))
                 {
@@ -137,9 +136,14 @@ namespace Platformer.Mechanics
 
             GameObject bodyType = stoneBody;
             Vector2 spawnPos = lastDeathPosBottom;
-            // Spawn the body on death
+            // Play animation and spawn the body on death 
+            playDeathAnimation();
             switch (this.activeModifier)
             {
+
+                /*** IMPORTANT
+                 *   If adding more deaths, remember to set the animation trigger in playDeathAnimation() below
+                */
                 case ("stone"):
                     bodyType = stoneBody;
                     break;
@@ -169,8 +173,8 @@ namespace Platformer.Mechanics
             }
 
             // move new body to the persistent container
-            string deadBodyContainer = gameObject.scene.name + "Bodies";
-            newBody.transform.parent = GameObject.Find(deadBodyContainer).transform;
+            string deadBodyContainer = GameObject.Find("GameController").scene.name + "Objects";
+            newBody.transform.parent = GameObject.Find(deadBodyContainer).transform.Find("DeadBodies");
 
             // Reset sprite size to normal
             bodyType.transform.localScale /= newScale;
@@ -178,16 +182,18 @@ namespace Platformer.Mechanics
 
         private void UpdateKickHitBox()
         {
-            // when kick is enabled, count for 5 frames then disable
+             // when kick is enabled, count for 1 frames then disable
             if (isKicking)
             {
-                if (kickFrameCount > 1)
+                if (kickFrameCount < 4)
                 {
                     kickFrameCount += 1;
                 }
                 else
                 { 
                     gameObject.transform.Find("Kick").gameObject.GetComponent<BoxCollider2D>().enabled = false;
+                    kickFrameCount = 0;
+                    isKicking = false;
                 }
             }
             
@@ -288,6 +294,27 @@ namespace Platformer.Mechanics
             // toggles between on/off
             gameObject.transform.Find("Kick").gameObject.GetComponent<BoxCollider2D>().enabled ^= true;
             isKicking ^= true;
+        }
+
+        public void playDeathAnimation()
+        {
+            Debug.Log(activeModifier);
+            switch (activeModifier)
+            {
+                case ("stone"):
+                    animator.SetTrigger("stoneDeath");
+                    break;
+                case ("ice"):
+                    animator.SetTrigger("iceDeath");
+                    break;
+                case ("wormhole"):
+                    Debug.Log("In Progress");
+                    break;
+                case ("normal"):
+                    animator.SetTrigger("stoneDeath");
+                    break;
+            }
+            animator.SetBool("dead", false);
         }
 
         public enum JumpState
