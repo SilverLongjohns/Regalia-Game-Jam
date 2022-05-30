@@ -18,16 +18,15 @@ namespace Platformer.Mechanics
             {
                 var ev = Schedule<PlayerEnteredSceneTransition>();
                 //ev.newZone = newScene;
+                // Save the correct transition point to enter from next when coming back
+                // IE if the player leaves the current room and re-enters, this will make it so they start at the place they left from
+                string persistentObjectName = GameObject.Find("GameController").GetComponent<GameController>().getPersistentObjectName();
+                Debug.Log(GameObject.Find(persistentObjectName + "/LoadPoint").transform.position);
+                Debug.Log(this.gameObject.transform.GetChild(0).transform);
+                GameObject.Find(persistentObjectName + "/LoadPoint").transform.position = this.gameObject.transform.GetChild(0).transform.position;
+                Debug.Log(GameObject.Find(persistentObjectName + "/LoadPoint").transform.position);
+                SceneManager.LoadScene(newScene);
             }
-
-            // Save the correct transition point to enter from next when coming back
-            // IE if the player leaves the current room and re-enters, this will make it so they start at the place they left from
-            string persistentObjectName = GameObject.Find("GameController").GetComponent<GameController>().getPersistentObjectName();
-            Debug.Log(GameObject.Find(persistentObjectName + "/LoadPoint").transform.position);
-            Debug.Log(this.gameObject.transform.GetChild(0).transform);
-            GameObject.Find(persistentObjectName + "/LoadPoint").transform.position = this.gameObject.transform.GetChild(0).transform.position;
-            Debug.Log(GameObject.Find(persistentObjectName + "/LoadPoint").transform.position);
-            SceneManager.LoadScene(newScene);
         }
     }
 }
