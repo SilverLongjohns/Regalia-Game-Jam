@@ -19,7 +19,7 @@ MonoBehaviour:
     width: 1920
     height: 989
   m_ShowMode: 4
-  m_Title: Game
+  m_Title: Scene
   m_RootView: {fileID: 2}
   m_MinSize: {x: 875, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
@@ -119,7 +119,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 200}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 0
-  controlID: 635
+  controlID: 69
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -144,7 +144,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 200}
   m_MaxSize: {x: 16192, y: 16192}
   vertical: 1
-  controlID: 23
+  controlID: 78
 --- !u!114 &7
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -169,7 +169,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 100}
   m_MaxSize: {x: 16192, y: 8096}
   vertical: 0
-  controlID: 24
+  controlID: 79
 --- !u!114 &8
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -189,8 +189,8 @@ MonoBehaviour:
     y: 0
     width: 284
     height: 676
-  m_MinSize: {x: 200, y: 200}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 201, y: 221}
+  m_MaxSize: {x: 4001, y: 4021}
   m_ActualView: {fileID: 15}
   m_Panes:
   - {fileID: 15}
@@ -475,22 +475,22 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Scenes
+    - Assets/Level Maker/Prefab
     m_Globs: []
     m_OriginalText: 
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/Scenes
+  - Assets/Level Maker/Prefab
   m_LastFoldersGridSize: -1
   m_LastProjectPath: C:\Users\Bell\Documents\GitHub\Regalia-Game-Jam1
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 290}
-    m_SelectedIDs: 927b0000
-    m_LastClickedID: 31634
-    m_ExpandedIDs: 00000000587900005a7900005c7900005e7900008e7b000000ca9a3bffffff7f
+    scrollPos: {x: 0, y: 174}
+    m_SelectedIDs: bc770000
+    m_LastClickedID: 30652
+    m_ExpandedIDs: 00000000b6770000b8770000ba770000be770000f079000000ca9a3bffffff7f
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -518,7 +518,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 00000000587900005a7900005c7900005e790000
+    m_ExpandedIDs: 00000000b6770000b8770000ba770000bc770000be770000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -606,9 +606,9 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 92e3fcff
-      m_LastClickedID: -203886
-      m_ExpandedIDs: 84e5fcff46effcff2cf8fcff284ffdff2a4ffdffd454fdff0059fdffb45efdff2868fdffec7dfdffca95fdff62a0fdff8eb2fdffdcbdfdff9ae6fdffd2f9fdffe8fafdff22fcfdff2afcfdff5cfcfdff8e08feff000dfeff120efeff2a0ffeff2410feff1e11feff3212feff2c13feff2c14feff3214feff5014feff0c5cfeff3c63feff8278feffe07ffeffb081feff808ffeff4895feffe0a2feffa2a6feffa2a8feff72b7feffd4c1feffd8c1fefff4c1fefff4c6fefff8c6feff26c7feffc2ccfeff6cd9feffe4dbfefffee1feffcce2feff862affff2e97ffff66ecffff12fbfffff4ffffff148e0000548e0000ec980000fa9a000006a4000004ac00003cc9000034d6000062da000010dd0000
+      m_SelectedIDs: 049a0000
+      m_LastClickedID: 39428
+      m_ExpandedIDs: 58beffffa8c9ffffccd3ffffc6d8ffffdee2ffff5ee8ffffbef7ffff0afbfffff4ffffffc28c0000a494000042980000dc9900001c9a0000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -709,7 +709,7 @@ MonoBehaviour:
       containerId: overlay-toolbar__top
       floating: 0
       collapsed: 0
-      displayed: 0
+      displayed: 1
       snapOffset: {x: 0, y: 0}
       snapOffsetDelta: {x: 0, y: 0}
       snapCorner: 0
@@ -880,9 +880,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 54.024612, y: -23.962849, z: 3.661584}
+    m_Target: {x: 12.196077, y: -24.667234, z: 3.8669446}
     speed: 2
-    m_Value: {x: 54.024612, y: -23.962849, z: 3.661584}
+    m_Value: {x: 12.196077, y: -24.667234, z: 3.8669446}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -933,9 +933,9 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: 0, y: 0, z: 0, w: 1}
   m_Size:
-    m_Target: 8.665812
+    m_Target: 12.49254
     speed: 2
-    m_Value: 8.665812
+    m_Value: 12.49254
   m_Ortho:
     m_Target: 1
     speed: 2

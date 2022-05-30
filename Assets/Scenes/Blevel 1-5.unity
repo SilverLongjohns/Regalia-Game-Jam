@@ -10130,12 +10130,12 @@ PrefabInstance:
     - target: {fileID: 7056202447687174395, guid: f85633365eaa4f248a174549263ee8a8,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 46
+      value: 54.37
       objectReference: {fileID: 0}
     - target: {fileID: 7056202447687174395, guid: f85633365eaa4f248a174549263ee8a8,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -17.47
+      value: -39.83
       objectReference: {fileID: 0}
     - target: {fileID: 7056202447687174395, guid: f85633365eaa4f248a174549263ee8a8,
         type: 3}
@@ -36920,7 +36920,7 @@ TilemapCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: -0.35}
@@ -37250,12 +37250,12 @@ PrefabInstance:
     - target: {fileID: 1658460978237467174, guid: fe149467f692c6e4e870c1398f8eb34f,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 60.676804
+      value: 61
       objectReference: {fileID: 0}
     - target: {fileID: 1658460978237467174, guid: fe149467f692c6e4e870c1398f8eb34f,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -39.26375
+      value: -39.36
       objectReference: {fileID: 0}
     - target: {fileID: 1658460978237467174, guid: fe149467f692c6e4e870c1398f8eb34f,
         type: 3}
