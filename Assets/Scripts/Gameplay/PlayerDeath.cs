@@ -14,6 +14,8 @@ namespace Platformer.Gameplay
     {
         PlatformerModel model = Simulation.GetModel<PlatformerModel>();
 
+        public bool dropBody;
+
         public override void Execute()
         {
             var player = model.player;
@@ -31,8 +33,9 @@ namespace Platformer.Gameplay
                     player.audioSource.PlayOneShot(player.ouchAudio);
                 player.animator.SetTrigger("hurt");
                 player.animator.SetBool("dead", true);
-
-                Simulation.Schedule<PlayerSpawn>(2);
+                player.playDeathAnimation();
+                var ev = Simulation.Schedule<PlayerSpawn>(2);
+                ev.dropBody = dropBody;
 
             }
         }

@@ -3,6 +3,8 @@ using Platformer.Mechanics;
 using Platformer.Model;
 using UnityEngine;
 using static Platformer.Core.Simulation;
+using System.Collections;
+using System.Collections.Generic;
 
 namespace Platformer.Gameplay
 {
@@ -16,30 +18,33 @@ namespace Platformer.Gameplay
         public EnemyController enemy;
         public PlayerController player;
         public Animator anim;
-
-        public int playerBounce;
-
-        public bool hungryEnemy = true;
-
+        public float bounceHeight;
 
         PlatformerModel model = Simulation.GetModel<PlatformerModel>();
 
         public override void Execute()
         {
+            anim = enemy.GetComponent<Animator>();
+            bool hungryEnemy = enemy.GetComponent<EnemyController>().isHungry;
             var willHurtPlayer = (hungryEnemy ? true : false);
 
-            anim = enemy.GetComponent<Animator>();
 
             if (willHurtPlayer)
             {
+
                 Debug.Log("Hurt player");
+                anim.SetTrigger("eatPlayer");
+                player.gameObject.GetComponent<SpriteRenderer>().enabled = false;
+                //enemy.GetComponent<EnemyController>().isHungry = false;
 
-                Schedule<PlayerDeath>();
+                var ev = Schedule<PlayerDeath>();
+                ev.dropBody = false;
 
-                hungryEnemy = false;
-
-                playerBounce = 8;
-
+                if(player.activeModifier == "sleep")
+                {
+                    enemy.GetComponent<EnemyController>().isHungry = false;
+                    anim.SetTrigger("goSleep");
+                }
                 
                 if(enemy.path)
                 {
@@ -51,7 +56,7 @@ namespace Platformer.Gameplay
             }
             else
             {
-                player.Bounce(playerBounce);
+                player.Bounce(bounceHeight);
             }
         }
     }
