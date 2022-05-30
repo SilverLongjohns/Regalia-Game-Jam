@@ -97,7 +97,6 @@ namespace Platformer.Mechanics
             {
                 for (int i = 0; i <= sleepingEnemies.transform.childCount; i++)
                 {
-                    Debug.Log(i);
                     for (int j = 0; j < gameSceneObjects.Length; j++)
                     {
                         if (gameSceneObjects[j].name == sleepingEnemies.transform.GetChild(i).name)

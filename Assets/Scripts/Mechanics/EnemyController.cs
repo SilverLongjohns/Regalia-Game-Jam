@@ -15,7 +15,7 @@ namespace Platformer.Mechanics
         public PatrolPath path;
         public AudioClip ouch;
 
-        public bool isHungry = true;
+        public bool isHungry; //should default to true
         public float bounceHeight = 1.0f;
 
         internal PatrolPath.Mover mover;
@@ -35,18 +35,20 @@ namespace Platformer.Mechanics
             _collider = GetComponent<Collider2D>();
             _audio = GetComponent<AudioSource>();
             spriteRenderer = GetComponent<SpriteRenderer>();
-            if (!isHungry)
-            {
-                spriteRenderer.sprite = sleeping;
-                gameObject.GetComponent<Animator>().SetBool("isSleeping", true);
-            }
         }
-
-        void OnCollisionEnter2D(Collision2D collision)
+            void OnCollisionEnter2D(Collision2D collision)
         {
             var player = collision.gameObject.GetComponent<PlayerController>();
             if (player != null)
             {
+                if(collision.collider.bounds.center.x > gameObject.GetComponent<BoxCollider2D>().bounds.center.x)
+                {
+                    gameObject.transform.flipX = true;
+                }
+                else
+                {
+                    gameObject.transform.flipX = false;
+                }
                 var ev = Schedule<PlayerEnemyCollision>();
                 ev.player = player;
                 ev.enemy = this;
@@ -60,6 +62,10 @@ namespace Platformer.Mechanics
             {
                 if (mover == null) mover = path.CreateMover(control.maxSpeed * 0.5f);
                 control.move.x = Mathf.Clamp(mover.Position.x - transform.position.x, -1, 1);
+            }
+            if (!isHungry)
+            {
+                gameObject.GetComponent<Animator>().SetBool("isSleeping", true);
             }
         }
 
