@@ -15,7 +15,7 @@ namespace Platformer.Mechanics
         public PatrolPath path;
         public AudioClip ouch;
 
-        public bool isHungry = true;
+        public bool isHungry; //should default to true
         public float bounceHeight = 1.0f;
 
         internal PatrolPath.Mover mover;
@@ -24,21 +24,31 @@ namespace Platformer.Mechanics
         internal AudioSource _audio;
         SpriteRenderer spriteRenderer;
 
+        [SerializeField] Sprite sleeping;
+
         public Bounds Bounds => _collider.bounds;
 
         void Awake()
         {
+            Debug.Log("hello!");
             control = GetComponent<AnimationController>();
             _collider = GetComponent<Collider2D>();
             _audio = GetComponent<AudioSource>();
             spriteRenderer = GetComponent<SpriteRenderer>();
         }
-
-        void OnCollisionEnter2D(Collision2D collision)
+            void OnCollisionEnter2D(Collision2D collision)
         {
             var player = collision.gameObject.GetComponent<PlayerController>();
             if (player != null)
             {
+                if(collision.collider.bounds.center.x > gameObject.GetComponent<BoxCollider2D>().bounds.center.x)
+                {
+                    gameObject.transform.GetComponent<SpriteRenderer>().flipX = true;
+                }
+                else
+                {
+                    gameObject.transform.GetComponent<SpriteRenderer>().flipX = false;
+                }
                 var ev = Schedule<PlayerEnemyCollision>();
                 ev.player = player;
                 ev.enemy = this;
@@ -52,6 +62,10 @@ namespace Platformer.Mechanics
             {
                 if (mover == null) mover = path.CreateMover(control.maxSpeed * 0.5f);
                 control.move.x = Mathf.Clamp(mover.Position.x - transform.position.x, -1, 1);
+            }
+            if (!isHungry)
+            {
+                gameObject.GetComponent<Animator>().SetBool("isSleeping", true);
             }
         }
 
